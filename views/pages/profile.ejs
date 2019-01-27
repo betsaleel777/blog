@@ -1,0 +1,28 @@
+<% include header %>
+<%# affichage de l'email  %>
+
+<h3>utilisateur <%=  %></h3>
+<%# liste des sujets créer par l'utilisateurs %>
+<div class="ui relaxed divided list">
+<% if(locals.sujets[0]){  
+    for (sujet of sujets) {%>
+  <div class="item">
+    <i class="large github middle aligned icon"></i>
+    <div class="content">
+      <a class="header"><%= sujet.titre+'/'+sujet.sous_titre  %></a>
+      <div class="description">sujet.created_at</div>
+    </div>
+  </div>
+  <% }
+} else{
+  %>
+  <div class="item">
+    <i class="large github middle aligned icon"></i>
+    <div class="content">
+      <div class="description">vous avez créer aucun sujets</div>
+    </div>
+  </div>
+  <% } %>
+</div>
+  <%# bouton modifier password activant les deux champs hidden de password et de passwordConfirmed %>
+<% include footer %>

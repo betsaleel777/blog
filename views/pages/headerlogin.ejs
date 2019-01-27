@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Golden Book</title>
+  <link rel="stylesheet" href="assets/semantic/semantic.min.css">
+  <link rel="stylesheet" href="custom/style/login.css">
+</head>
+<body>
+  <div style="margin-top:7em ;" class="ui main container">
+  <% if (locals.flash && locals.flash.error) { %>
+  <div id="message" class="ui negative message">
+    <%= flash.error %>
+  </div>
+  <% } %>
+  <% if (locals.flash && locals.flash.success) { %>
+  <div  class="ui positive message">
+    <%= flash.success %>
+  </div>
+  <% } %>
