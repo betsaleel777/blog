@@ -14,8 +14,13 @@ class Message {
     return moment(this.row.created_at);
   }
 
-  static insert(content, cb) {
-    database.query('INSERT INTO messages SET contenu=?,created_at=?', [content, new Date()], (err, result) => {
+  get sujet(){
+    return this.row.sujet ;
+  }
+
+  static insert(body, cb) {
+    let {contenu,sujet} = body ;
+    database.query('INSERT INTO messages SET contenu=?,sujet=?,created_at=?', [contenu,sujet, new Date()], (err, result) => {
       if (err) throw err;
       cb(result);
     });

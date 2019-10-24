@@ -1,0 +1,34 @@
+<% include header %>
+  <div class="ui comments">
+    <% let {sujet,messages} = commentList %>
+    <h3 class="ui dividing header">Sujet:<%= sujet.titre+'/'+sujet.sous_titre %></h3>
+    <div class="comment">
+     <div class="content">
+      <div class="metadata">
+        <div class='date'><%= sujet.created_at.fromNow() %></div>
+      </div>
+       <div class="text"><%= sujet.contenu %></div>
+     </div>
+    </div>
+    <% if(messages){
+     for (message of messages){ %>
+      <div class="comment">
+      <div class="content">
+        <div class="metadata">
+        <div class='date'><%= message.created_at.fromNow() %></div>
+        </div>
+        <div class="text"><%= message.contenu %></div>
+      </div>
+    </div>
+    <%}}%>
+  <form  action="/commentaires" method="post" class="ui form">
+   <input hidden type="text" name="sujet" value="<%= sujet.id %>">
+   <div class="field">
+    <label for="message">Message:</label>
+    <textarea name="message"></textarea>
+  </div>
+  <button type="submit" class="ui yellow labeled submit icon button">
+    <i class="icon send"></i>envoyer
+  </button>
+  </form>
+<% include footer %>

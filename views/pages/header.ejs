@@ -9,10 +9,14 @@
 </head>
 <body>
   <div class="ui fixed inverted menu">
-    <a href="/" class="header item">Acceuil</a>
-    <a href="/commentaires" class='item'>Blog</a>
-    <a href="/sign" class="item">sign up</a>
+    <a href="/acceuil" class="item">Acceuil</a>
+    <% if(locals.userId){ %>
+    <a href="/profile" class="item">mon compte</a>
+    <a href="/deconnexion" class="item">deconnexion</a>
+    <% }else{ %>
+    <a href="/sign" class="item">signup</a>
     <a href="/login" class="item">login</a>
+    <% } %>
   </div>
   <div style="margin-top:7em ;" class="ui main container">
   <% if (locals.flash && locals.flash.error) { %>
